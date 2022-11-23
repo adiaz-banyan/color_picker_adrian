@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Color Picker</title>
+  </head>
+  <body style="background-color: rgb({{ red }}, {{ green }}, {{ blue }})">
+    <div>
+      <h2>Enter a number between 0 and 255 for each of the colors below:</h2>
+      <form method="POST" action="{% url 'paint' %}">
+        {% csrf_token %}
+        <div>
+          <!-- HAVING ISSUES WITH THIS FORMATTING. NOT USING AUTO THINGY TO FORMAT PYTHON ANYMORE! -->
+          {{ form.red_input.label_tag }} {{ form.red_input }}
+          {{form.green_input.label_tag }} {{ form.green_input }}
+          {{form.blue_input.label_tag }} {{ form.blue_input }}
+        </div>
+        <div>
+          <button type="submit">Paint</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
